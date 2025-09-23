@@ -74,7 +74,7 @@ See [full docs](https://docs.snyk.io/manage-risk/snyk-apprisk/risk-based-priorit
 
 Add tags to container images: [see example workflow](./.github/workflows/container-build-and-test.yml#L35).
 
-Examples:
+Examples:---
 
 ```
 snyk container monitor your/image:tag --tags="component=pkg:${{ github.repository }}@${{ github.ref_name }}"
