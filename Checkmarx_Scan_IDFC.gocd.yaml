@@ -1,0 +1,28 @@
+format_version: 10
+pipelines:
+  Checkmarx_Scan_IDFC:
+    group: defaultGroup
+    label_template: ${COUNT}
+    lock_behavior: none
+    display_order: -1
+    materials:
+      git-2e72a92:
+        git: https://github.com/sajin-sajeevan/Juice-shop.git
+        shallow_clone: false
+        auto_update: true
+        branch: master
+    stages:
+    - Checkmarx:
+        fetch_materials: true
+        keep_artifacts: false
+        clean_workspace: false
+        approval:
+          type: success
+          allow_only_on_success: false
+        jobs:
+          SAST:
+            timeout: 0
+            tasks:
+            - exec:
+                command: C:CxConsolePluginGocd.cmd
+                run_if: passed
